@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Player {
-    // color of Pieces
     Color color;
     Scanner sc = new Scanner(System.in);
     public void selectColor() {
