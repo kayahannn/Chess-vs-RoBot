@@ -3,6 +3,13 @@ import java.util.Scanner;
 public class Player {
     Color color;
     Scanner sc = new Scanner(System.in);
+
+    public Player() {
+    }
+
+    public Player(Color color) {
+    }
+
     public void selectColor() {
         boolean validInput = false;
         do {
@@ -19,4 +26,10 @@ public class Player {
     public void closeScanner() {
         sc.close();
     }
+
+
+    public boolean getColor() {
+        return false;
+    }
 }
+
