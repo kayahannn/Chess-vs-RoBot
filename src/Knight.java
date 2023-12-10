@@ -1,7 +1,12 @@
 public class Knight extends Piece{
 
-    public Knight(boolean available, int x, int y) {
-        super(available, x, y);
+    public Knight(Color color, int x, int y) {
+        super(color, x, y);
+    }
+
+    @Override
+    public String getSymbol() {
+        return "♞";
     }
 
     @Override
@@ -15,6 +20,11 @@ public class Knight extends Piece{
             return false;
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return null;
     }
 
 }

@@ -1,7 +1,7 @@
 public class Rook extends Piece{
 
-    public Rook(boolean available, int x, int y) {
-        super(available, x, y);
+    public Rook(Color color, int x, int y) {
+        super(color, x, y);
 
     }
 
@@ -15,5 +15,15 @@ public class Rook extends Piece{
         if(toY == fromY)
             return true;
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "R";
+    }
+
+    @Override
+    public String getSymbol() {
+        return "♜";
     }
 }

@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Player humanPlayer = new Player();
-        humanPlayer.selectColor();
+//        humanPlayer.selectColor();
 
         System.out.println("Select computer difficulty level: (1) Beginner or (2) Advanced");
         int computerLevelChoice = scanner.nextInt();
@@ -20,8 +20,6 @@ public class Main {
             computer2 = new AdvancedComputerPlayer();
         }
 
-        Board chessBoard = new Board();
-
         // Include computer players in the array
         Player[] players;
         if (computer1 != null && computer2 != null) {
@@ -34,21 +32,24 @@ public class Main {
             players = new Player[]{humanPlayer};
         }
 
-        displayBoard(chessBoard);
-
-        while (true) {
-            for (Player player : players) {
-                playTurn(player, chessBoard);
-                displayBoard(chessBoard);
-
-                // Check for checkmate or stalemate
-                if (isCheckmateOrStalemate(player, chessBoard)) {
-                    System.out.println("Game over. " + getOpponent(player).getColor() + " wins!");
-                    scanner.close();
-                    return;
-                }
-            }
-        }
+        Board chessBoard = new Board();
+        chessBoard.initializeStartingBoard();
+        chessBoard.displayBoard();
+        humanPlayer.move(1,1,2,1,chessBoard);
+        chessBoard.displayBoard();
+//        while (true) {
+//            for (Player player : players) {
+//                playTurn(player, chessBoard);
+//                Board.displayBoard(chessBoard);
+//
+//                // Check for checkmate or stalemate
+//                if (isCheckmateOrStalemate(player, chessBoard)) {
+//                    System.out.println("Game over. " + getOpponent(player).getColor() + " wins!");
+//                    scanner.close();
+//                    return;
+//                }
+//            }
+//        }
     }
 
     private static void playTurn(Player player, Board board) {
@@ -61,10 +62,6 @@ public class Main {
         }
     }
 
-    private static void displayBoard(Board board) {
-
-        System.out.println("Current Board State:");
-    }
 
     private static boolean isCheckmateOrStalemate(Player player, Board board) {
 

@@ -1,7 +1,7 @@
 public class Queen extends Piece{
 
-    public Queen(boolean available, int x, int y) {
-        super(available, x, y);
+    public Queen(Color color, int x, int y) {
+        super(color, x, y);
     }
 
     @Override
@@ -17,6 +17,16 @@ public class Queen extends Piece{
             return true;
 
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
+    @Override
+    public String getSymbol() {
+        return "♛";
     }
 
 }

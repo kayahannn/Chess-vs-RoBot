@@ -1,8 +1,8 @@
 public class King extends Piece{
 
 
-    public King(boolean available, int x, int y) {
-        super(available, x, y);
+    public King(Color color, int x, int y) {
+        super(color, x, y);
 
     }
 
@@ -14,6 +14,16 @@ public class King extends Piece{
             return false;
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
+    @Override
+    public String getSymbol() {
+        return "♚";
     }
 
 }
