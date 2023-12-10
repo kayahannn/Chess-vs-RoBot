@@ -2,6 +2,11 @@ import java.util.Random;
 
 public  class AdvancedComputerPlayer extends ComputerPlayer{
 
+    public AdvancedComputerPlayer() {
+        this.name = "Google";
+    }
+
+
     @Override
     public void makeMove(Board board) {
         System.out.println("Advanced computer is making a move...");

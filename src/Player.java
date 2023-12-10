@@ -1,12 +1,18 @@
 import java.util.Scanner;
 
 public class Player {
-    Color color;
-    Scanner sc = new Scanner(System.in);
+    protected String name;
+    protected Color color;
+    public String getName() {
+        return name;
+    }
 
     public Player() {
+        this.name = null;
+        this.color = null;
     }
-    public void move(int fromX, int fromY,int toX,int toY,Board board){
+
+    public void makeMove(int fromX, int fromY, int toX, int toY, Board board) {
         // Get the piece from the source spot
         Piece pieceToMove = board.getSpot(fromX, fromY).getPiece();
 
@@ -22,6 +28,7 @@ public class Player {
             System.out.println("There is no piece at the source spot.");
         }
     }
+
     public Player(Color color) {
     }
 
@@ -37,10 +44,6 @@ public class Player {
 //            }
 //        } while (!validInput);
 //    }
-
-    public void closeScanner() {
-        sc.close();
-    }
 
 
     public Color getColor() {
