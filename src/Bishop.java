@@ -1,8 +1,8 @@
 public class Bishop extends Piece{
 
 
-    public Bishop(boolean available, int x, int y) {
-        super(available, x, y);
+    public Bishop(Color color, int x, int y) {
+        super(color, x, y);
 
     }
 
@@ -15,6 +15,16 @@ public class Bishop extends Piece{
             return true;
 
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return null;
+    }
+
+    @Override
+    public String getSymbol() {
+        return "♝";
     }
 
 }

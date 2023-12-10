@@ -3,16 +3,16 @@ public class Spot {
     int y;
     Piece piece;
 
-    public Spot(int x, int y) {
+    public Spot(int x, int y,Piece piece) {
         super();
         this.x = x;
         this.y = y;
-        piece = null;
+        this.piece = piece;
     }
-
+    public Piece getPiece() {
+        return piece;
+    }
     public void occupySpot(Piece piece){
-        if(this.piece != null)
-            this.piece.setAvailable(false);
         this.piece = piece;
     }
 
@@ -28,4 +28,8 @@ public class Spot {
         return releasedPiece;
     }
 
+    @Override
+    public String toString() {
+        return piece.toString();
+    }
 }
