@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
-public class Player {
+public abstract class Player {
+
+    Scanner sc = new Scanner(System.in);
     protected String name;
     protected Color color;
+
     public String getName() {
         return name;
     }
@@ -13,6 +16,7 @@ public class Player {
     }
 
     public void makeMove(int fromX, int fromY, int toX, int toY, Board board) {
+
         // Get the piece from the source spot
         Piece pieceToMove = board.getSpot(fromX, fromY).getPiece();
 
@@ -29,25 +33,24 @@ public class Player {
         }
     }
 
-    public Player(Color color) {
+    public void selectColor() {
+        boolean validInput = false;
+        do {
+            System.out.println("Select your color of pieces BLACK/WHITE:");
+            try {
+                color = Color.valueOf(sc.nextLine().toUpperCase());
+                validInput = true;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid color. Please choose a valid color.");
+            }
+        } while (!validInput);
     }
-
-//    public void selectColor() {
-//        boolean validInput = false;
-//        do {
-//            System.out.println("Select your color of pieces BLACK/WHITE:");
-//            try {
-//                color = Color.valueOf(sc.nextLine().toUpperCase());
-//                validInput = true;
-//            } catch (IllegalArgumentException e) {
-//                System.out.println("Invalid color. Please choose a valid color.");
-//            }
-//        } while (!validInput);
-//    }
 
 
     public Color getColor() {
         return color;
     }
+
+
 }
 

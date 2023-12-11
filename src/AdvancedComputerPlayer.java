@@ -1,5 +1,5 @@
 import java.util.Random;
-
+//Evaluating decisions by Material and Using Famous strategy
 public  class AdvancedComputerPlayer extends ComputerPlayer{
 
     public AdvancedComputerPlayer() {

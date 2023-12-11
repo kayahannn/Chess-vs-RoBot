@@ -1,5 +1,7 @@
 public class Board {
-    private static Spot[][] spots = new Spot[8][8];
+    private static final Spot[][] spots = new Spot[8][8];
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
 
 
     public Board() {
@@ -27,7 +29,12 @@ public class Board {
                 if (getSpot(i, j).getPiece() == null) {
                     System.out.print(" " + "  " + " |");
                 } else {
-                    System.out.print(" " + getSpot(i, j).getPiece().getSymbol() + " | ");
+                    if(getSpot(i,j).getPiece().getColor().equals(Color.BLACK)) {
+                        System.out.print(" " + ANSI_BLACK + getSpot(i, j).getPiece().getSymbol() + ANSI_RESET + " | ");
+                    }else{
+                        System.out.print(" " + getSpot(i, j).getPiece().getSymbol() +  " | ");
+
+                    }
                 }
             }
             System.out.print(" " + (i + 1));
