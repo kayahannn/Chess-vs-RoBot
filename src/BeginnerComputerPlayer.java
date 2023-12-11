@@ -1,5 +1,5 @@
 import java.util.Random;
-
+//Evaluating game by Material, taken pieces
 public class BeginnerComputerPlayer extends ComputerPlayer {
 
     public BeginnerComputerPlayer() {
