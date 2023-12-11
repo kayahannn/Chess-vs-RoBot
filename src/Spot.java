@@ -1,23 +1,25 @@
 public class Spot {
-    int x;
-    int y;
-    Piece piece;
+   protected int x;
+    protected int y;
+    protected Piece piece;
 
-    public Spot(int x, int y,Piece piece) {
+    public Spot(int x, int y, Piece piece) {
         super();
         this.x = x;
         this.y = y;
         this.piece = piece;
     }
+
     public Piece getPiece() {
         return piece;
     }
-    public void occupySpot(Piece piece){
+
+    public void occupySpot(Piece piece) {
         this.piece = piece;
     }
 
     public boolean isOccupied() {
-        if(piece != null)
+        if (piece != null)
             return true;
         return false;
     }

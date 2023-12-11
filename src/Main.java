@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Player humanPlayer = new HumanPlayer();
-//        humanPlayer.selectColor();
+        humanPlayer.selectColor();
 
         System.out.println("Select computer difficulty level: (1) Beginner or (2) Advanced");
         int computerLevelChoice = scanner.nextInt();
@@ -56,15 +56,21 @@ public class Main {
         if (player instanceof ComputerPlayer) {
             ((ComputerPlayer) player).makeMove(board);
         } else {
-            System.out.println("Enter coordinates from move: ");
-            String line = input.nextLine();
-            int fromX = Character.getNumericValue(line.charAt(0));
-            int fromY = Character.getNumericValue(line.charAt(1));
-            System.out.println("Enter coordinates to move: ");
-            line = input.nextLine();
-            int toX = Character.getNumericValue(line.charAt(0));
-            int toY = Character.getNumericValue(line.charAt(1));
-            player.makeMove(fromX, fromY, toX, toY, board);
+            System.out.println("Move from Spot: ");
+            Coordinates moveFromSpot = Coordinates.humanPlayerEnterCoordinates();
+            System.out.println("Move to Spot: ");
+
+            Coordinates moveToSpot = Coordinates.humanPlayerEnterCoordinates();
+//            System.out.println("Enter coordinates from move: ");
+//            String line = input.nextLine();
+//            int fromX = Character.getNumericValue(line.charAt(0));
+//            int fromY = Character.getNumericValue(line.charAt(1));
+//            System.out.println("Enter coordinates to move: ");
+//            line = input.nextLine();
+//            int toX = Character.getNumericValue(line.charAt(0));
+//            int toY = Character.getNumericValue(line.charAt(1));
+//            player.makeMove(fromX, fromY, toX, toY, board);
+            player.makeMove(moveFromSpot.getIntFile(), moveFromSpot.getRank(), moveToSpot.getIntFile(), moveToSpot.getRank(), board);
 
         }
     }
