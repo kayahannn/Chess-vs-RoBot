@@ -20,13 +20,14 @@ public abstract class Player {
         // Get the piece from the source spot
         Piece pieceToMove = board.getSpot(fromX, fromY).getPiece();
 
-        // Check if there's a piece at the source spot
+        // Check if there is a piece in the spot
         if (pieceToMove != null) {
+
             // Remove the piece from the source spot
             board.getSpot(fromX, fromY).releaseSpot();
-
             // Move the piece to the destination spot
             board.getSpot(toX, toY).occupySpot(pieceToMove);
+
         } else {
             // Handle the case where there's no piece at the source spot
             System.out.println("There is no piece at the source spot.");

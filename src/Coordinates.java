@@ -21,12 +21,18 @@ public class Coordinates {
         return rank;
     }
 
+    @Override
+    public String toString() {
+        return "Coordinates{" +
+                "file=" + file.ordinal() +
+                ", rank=" + rank +
+                '}';
+    }
 
     public static Coordinates humanPlayerEnterCoordinates() {
         while (true) {
             System.out.println("Please enter coordinates (ex. a1)");
 
-            // a1
             String line = sc.nextLine();
 
             if (line.length() != 2) {
