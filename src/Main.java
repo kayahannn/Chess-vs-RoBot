@@ -58,9 +58,10 @@ public class Main {
         } else {
             System.out.println("Move from Spot: ");
             Coordinates moveFromSpot = Coordinates.humanPlayerEnterCoordinates();
+            System.out.println(moveFromSpot.toString());
             System.out.println("Move to Spot: ");
-
             Coordinates moveToSpot = Coordinates.humanPlayerEnterCoordinates();
+            System.out.println(moveToSpot);
 //            System.out.println("Enter coordinates from move: ");
 //            String line = input.nextLine();
 //            int fromX = Character.getNumericValue(line.charAt(0));
@@ -70,7 +71,7 @@ public class Main {
 //            int toX = Character.getNumericValue(line.charAt(0));
 //            int toY = Character.getNumericValue(line.charAt(1));
 //            player.makeMove(fromX, fromY, toX, toY, board);
-            player.makeMove(moveFromSpot.getIntFile(), moveFromSpot.getRank(), moveToSpot.getIntFile(), moveToSpot.getRank(), board);
+            player.makeMove(moveFromSpot.getRank() - 1,moveFromSpot.getIntFile(), moveToSpot.getRank() - 1,moveToSpot.getIntFile(), board);
 
         }
     }
