@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -8,25 +7,22 @@ public class Main {
         Player humanPlayer = new HumanPlayer();
         humanPlayer.selectColor();
 
-        System.out.println("Select computer difficulty level: (1) Beginner or (2) Advanced");
+        System.out.println("Select computer difficulty level: (1) Beginner -Chat- or (2) Advanced -Bard-");
         int computerLevelChoice = scanner.nextInt();
 
 
         ComputerPlayer computer1 = null;
         ComputerPlayer computer2 = null;
-
+        Player[] players;
         if (computerLevelChoice == 1) {
             computer1 = new BeginnerComputerPlayer();
-        } else {
-            computer2 = new AdvancedComputerPlayer();
-        }
-
-        // Include computer players in the array
-        Player[] players;
-        if (computer1 != null) {
+            computer1.setColor(Color.oppositeColor(humanPlayer));
             players = new Player[]{humanPlayer, computer1};
         } else {
+            computer2 = new AdvancedComputerPlayer();
+            computer2.setColor(Color.oppositeColor(humanPlayer));
             players = new Player[]{humanPlayer, computer2};
+
         }
 
         Board chessBoard = new Board();
@@ -38,7 +34,6 @@ public class Main {
                 playTurn(player, chessBoard);
                 chessBoard.displayBoard();
 
-                // Check for checkmate or stalemate
                 if (isCheckmateOrStalemate(player, chessBoard)) {
                     System.out.println("Game over. " + player.name + " wins!");
                     scanner.close();
@@ -51,7 +46,7 @@ public class Main {
     public static void playTurn(Player player, Board board) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println(player.name + "'s turn");
+        System.out.println(player.getName() + "'s turn" + " playing with " + player.getColor());
 
         if (player instanceof ComputerPlayer) {
             ((ComputerPlayer) player).makeMove(board);
@@ -62,16 +57,7 @@ public class Main {
             System.out.println("Move to Spot: ");
             Coordinates moveToSpot = Coordinates.humanPlayerEnterCoordinates();
             System.out.println(moveToSpot);
-//            System.out.println("Enter coordinates from move: ");
-//            String line = input.nextLine();
-//            int fromX = Character.getNumericValue(line.charAt(0));
-//            int fromY = Character.getNumericValue(line.charAt(1));
-//            System.out.println("Enter coordinates to move: ");
-//            line = input.nextLine();
-//            int toX = Character.getNumericValue(line.charAt(0));
-//            int toY = Character.getNumericValue(line.charAt(1));
-//            player.makeMove(fromX, fromY, toX, toY, board);
-            player.makeMove(moveFromSpot.getRank() - 1,moveFromSpot.getIntFile(), moveToSpot.getRank() - 1,moveToSpot.getIntFile(), board);
+            player.makeMove(moveFromSpot.getRank() - 1, moveFromSpot.getIntFile(), moveToSpot.getRank() - 1, moveToSpot.getIntFile(), board);
 
         }
     }

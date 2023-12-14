@@ -1,10 +1,9 @@
 public class Spot {
-   protected int x;
+    protected int x;
     protected int y;
     protected Piece piece;
 
     public Spot(int x, int y, Piece piece) {
-        super();
         this.x = x;
         this.y = y;
         this.piece = piece;

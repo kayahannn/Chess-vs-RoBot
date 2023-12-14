@@ -29,10 +29,10 @@ public class Board {
                 if (getSpot(i, j).getPiece() == null) {
                     System.out.print(" " + "  " + " |");
                 } else {
-                    if(getSpot(i,j).getPiece().getColor().equals(Color.BLACK)) {
+                    if (getSpot(i, j).getPiece().getColor().equals(Color.BLACK)) {
+                        System.out.print(" " + getSpot(i, j).getPiece().getSymbol() + " | ");
+                    } else {
                         System.out.print(" " + ANSI_BLACK + getSpot(i, j).getPiece().getSymbol() + ANSI_RESET + " | ");
-                    }else{
-                        System.out.print(" " + getSpot(i, j).getPiece().getSymbol() +  " | ");
 
                     }
                 }
@@ -66,9 +66,9 @@ public class Board {
         spots[7][7] = new Spot(7, 7, new Rook(Color.WHITE, 7, 7));
 
         //Bishop
-        spots[0][2] = new Spot(0, 3, new Bishop(Color.BLACK, 0, 3));
+        spots[0][2] = new Spot(0, 3, new Bishop(Color.BLACK, 0, 2));
         spots[0][5] = new Spot(0, 5, new Bishop(Color.BLACK, 0, 5));
-        spots[7][2] = new Spot(7, 3, new Bishop(Color.WHITE, 7, 3));
+        spots[7][2] = new Spot(7, 3, new Bishop(Color.WHITE, 7, 2));
         spots[7][5] = new Spot(7, 5, new Bishop(Color.WHITE, 7, 5));
 
         //King
