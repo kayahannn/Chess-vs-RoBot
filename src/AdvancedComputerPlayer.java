@@ -2,15 +2,15 @@ import java.util.Random;
 //Evaluating decisions by Material and Using Famous strategy
 public  class AdvancedComputerPlayer extends ComputerPlayer{
 
-    public AdvancedComputerPlayer() {
-        this.name = "Google";
-    }
 
+    public AdvancedComputerPlayer() {
+        this.name = "Bard";
+
+    }
 
     @Override
     public void makeMove(Board board) {
-        System.out.println("Advanced computer is making a move...");
-
+        System.out.println(this.name + " is making a move...");
 
         makeRandomMove(board);
     }
@@ -34,5 +34,10 @@ public  class AdvancedComputerPlayer extends ComputerPlayer{
     private boolean isValidMove(Board board, int fromX, int fromY, int toX, int toY) {
 
         return true;
+    }
+
+    @Override
+    public void selectColor() {
+
     }
 }

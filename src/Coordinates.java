@@ -31,7 +31,7 @@ public class Coordinates {
 
     public static Coordinates humanPlayerEnterCoordinates() {
         while (true) {
-            System.out.println("Please enter coordinates (ex. a1)");
+            System.out.println("Please enter coordinates (Example: a1 )");
 
             String line = sc.nextLine();
 

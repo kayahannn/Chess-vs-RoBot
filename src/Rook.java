@@ -19,8 +19,9 @@ public class Rook extends Piece {
 
     @Override
     public String toString() {
-        return "R";
+        return null;
     }
+
 
     @Override
     public String getSymbol() {
