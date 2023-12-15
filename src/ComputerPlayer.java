@@ -3,7 +3,7 @@
 public abstract class ComputerPlayer extends Player {
 
 
-    public abstract void makeMove(Board board);
+    public abstract void makeMove();
 }
 
 

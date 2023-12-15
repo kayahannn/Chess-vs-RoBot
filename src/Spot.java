@@ -14,6 +14,7 @@ public class Spot {
     }
 
     public void occupySpot(Piece piece) {
+
         this.piece = piece;
     }
 

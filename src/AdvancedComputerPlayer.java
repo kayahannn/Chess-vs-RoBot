@@ -9,13 +9,13 @@ public  class AdvancedComputerPlayer extends ComputerPlayer{
     }
 
     @Override
-    public void makeMove(Board board) {
+    public void makeMove() {
         System.out.println(this.name + " is making a move...");
 
-        makeRandomMove(board);
+        makeRandomMove();
     }
 
-    private void makeRandomMove(Board board) {
+    private void makeRandomMove() {
         Random random = new Random();
         int fromX = random.nextInt(8);
         int fromY = random.nextInt(8);
@@ -23,21 +23,17 @@ public  class AdvancedComputerPlayer extends ComputerPlayer{
         int toY = random.nextInt(8);
 
 
-        if (isValidMove(board, fromX, fromY, toX, toY)) {
-            board.getSpot(toX, toY).occupySpot(board.getSpot(fromX, fromY).releaseSpot());
+        if (isValidMove(fromX, fromY, toX, toY)) {
+            Board.getSpot(toX, toY).occupySpot(Board.getSpot(fromX, fromY).releaseSpot());
         } else {
 
-            makeRandomMove(board);
+            makeRandomMove();
         }
     }
 
-    private boolean isValidMove(Board board, int fromX, int fromY, int toX, int toY) {
+    private boolean isValidMove(int fromX, int fromY, int toX, int toY) {
 
         return true;
     }
 
-    @Override
-    public void selectColor() {
-
-    }
 }

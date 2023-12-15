@@ -9,36 +9,38 @@ public class BeginnerComputerPlayer extends ComputerPlayer {
     }
 
     @Override
-    public void makeMove(Board board) {
+    public void makeMove() {
         System.out.println(this.name + " is making a move...");
+        boolean validMove = false;
+
+        while (!validMove) {
+            Random random = new Random();
+            int fromX = random.nextInt(8);
+            int fromY = random.nextInt(8);
+            int toX = random.nextInt(8);
+            int toY = random.nextInt(8);
 
 
-        Random random = new Random();
-        int fromX = random.nextInt(8);
-        int fromY = random.nextInt(8);
-        int toX = random.nextInt(8);
-        int toY = random.nextInt(8);
+            if (isValidMove(fromX, fromY, toX, toY)) {
 
-
-        if (isValidMove(board, fromX, fromY, toX, toY)) {
-            Piece pieceToMove = board.getSpot(fromX, fromY).getPiece();
-            if (pieceToMove != null) {
-                board.getSpot(fromX, fromY).releaseSpot();
-                board.getSpot(toX, toY).occupySpot(pieceToMove);
-            } else {
-                System.out.println("There is no piece at the source spot.");
+                Spot sourceSpot = Board.getSpot(fromX, fromY);
+                Spot destinationSpot = Board.getSpot(toX, toY);
+                Piece pieceToMove = sourceSpot.getPiece();
+                if (pieceToMove != null && pieceToMove.getColor().equals(this.color)) {
+                    sourceSpot.releaseSpot();
+                    destinationSpot.occupySpot(pieceToMove);
+                    validMove = true;
+                } else {
+                    System.out.println("There is no piece at the source spot.");
+                }
             }
         }
     }
 
-    private boolean isValidMove(Board board, int fromX, int fromY, int toX, int toY) {
+    private boolean isValidMove(int fromX, int fromY, int toX, int toY) {
 
         return true;
     }
 
-    @Override
-    public void selectColor() {
-
-    }
 }
 

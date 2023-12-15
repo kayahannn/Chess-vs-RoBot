@@ -5,7 +5,9 @@ public class Pawn extends Piece {
     public String getSymbol(){
         return "♟";
     }
+
+    @Override
     public String toString() {
-        return null;
+        return "Pawn";
     }
 }

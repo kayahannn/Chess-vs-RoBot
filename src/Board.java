@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Board {
     private static final Spot[][] spots = new Spot[8][8];
     public static final String ANSI_RESET = "\u001B[0m";
@@ -13,7 +15,7 @@ public class Board {
     }
 
 
-    public Spot getSpot(int x, int y) {
+    public static Spot getSpot(int x, int y) {
         return spots[x][y];
     }
 
@@ -29,10 +31,10 @@ public class Board {
                 if (getSpot(i, j).getPiece() == null) {
                     System.out.print(" " + "  " + " |");
                 } else {
-                    if (getSpot(i, j).getPiece().getColor().equals(Color.BLACK)) {
-                        System.out.print(" " + getSpot(i, j).getPiece().getSymbol() + " | ");
+                    if (getSpot(i, j).getPiece().getColor().equals(Color.WHITE)) {
+                        System.out.print("  " + getSpot(i, j).getPiece().getSymbol() + " |");
                     } else {
-                        System.out.print(" " + ANSI_BLACK + getSpot(i, j).getPiece().getSymbol() + ANSI_RESET + " | ");
+                        System.out.print("  " + ANSI_BLACK + getSpot(i, j).getPiece().getSymbol() + ANSI_RESET + " |");
 
                     }
                 }
@@ -56,8 +58,8 @@ public class Board {
         //Knights
         spots[0][1] = new Spot(0, 1, new Knight(Color.BLACK, 0, 1));
         spots[0][6] = new Spot(0, 1, new Knight(Color.BLACK, 0, 6));
-        spots[7][1] = new Spot(0, 6, new Knight(Color.WHITE, 7, 1));
-        spots[7][6] = new Spot(0, 6, new Knight(Color.WHITE, 7, 6));
+        spots[7][1] = new Spot(7, 1, new Knight(Color.WHITE, 7, 1));
+        spots[7][6] = new Spot(7, 6, new Knight(Color.WHITE, 7, 6));
 
         //Rooks
         spots[0][0] = new Spot(0, 0, new Rook(Color.BLACK, 0, 0));
@@ -81,6 +83,28 @@ public class Board {
         spots[7][3] = new Spot(7, 3, new Queen(Color.WHITE, 7, 3));
 
 
+    }
+
+    public ArrayList<Piece> pieceSet(){
+        ArrayList<Piece> whitePieces = new ArrayList<>();
+        for (int i = 0; i < spots.length; i++) {
+            for (int j = 0; j < spots[i].length; j++) {
+                Piece currentPiece= getSpot(i,j).getPiece();
+
+                if(currentPiece != null && currentPiece.getColor().equals(Color.WHITE)){
+                    whitePieces.add(currentPiece);
+                }
+            }
+        }
+        return whitePieces;
+    }
+
+
+    public void printPieceSet(ArrayList pieceSet){
+        for (int i = 0; i < pieceSet.size(); i++) {
+            System.out.println(pieceSet.get(i).toString());
+
+        }
     }
 
 }
