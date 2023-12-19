@@ -38,13 +38,13 @@ public class Main {
             while (true) {
                 for (Player player : players) {
                     playTurn(player);
-                    chessBoard.displayBoard();
                     if (isCheckmateOrStalemate(player, chessBoard)) {
                         System.out.println("Game over. " + player.name + " wins!");
                         scanner.close();
                         return;
                     }
                 }
+                chessBoard.displayBoard();
             }
         } catch (Exception e) {
             System.out.println("Invalid difficulty Level!");

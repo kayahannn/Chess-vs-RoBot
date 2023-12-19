@@ -14,33 +14,28 @@ public class BeginnerComputerPlayer extends ComputerPlayer {
         boolean validMove = false;
 
         while (!validMove) {
+
             Random random = new Random();
             int fromX = random.nextInt(8);
             int fromY = random.nextInt(8);
             int toX = random.nextInt(8);
             int toY = random.nextInt(8);
 
+            Spot sourceSpot = Board.getSpot(fromX, fromY);
+            Spot destinationSpot = Board.getSpot(toX, toY);
 
-            if (isValidMove(fromX, fromY, toX, toY)) {
+            Piece pieceToMove = sourceSpot.getPiece();
 
-                Spot sourceSpot = Board.getSpot(fromX, fromY);
-                Spot destinationSpot = Board.getSpot(toX, toY);
-                Piece pieceToMove = sourceSpot.getPiece();
-                if (pieceToMove != null && pieceToMove.getColor().equals(this.color)) {
-                    sourceSpot.releaseSpot();
-                    destinationSpot.occupySpot(pieceToMove);
-                    validMove = true;
-                } else {
-                    System.out.println("There is no piece at the source spot.");
-                }
+            if (pieceToMove != null && pieceToMove.getColor().equals(this.color) && pieceToMove.isValid(fromX, fromY, toX, toY)) {
+                sourceSpot.releaseSpot();
+                destinationSpot.occupySpot(pieceToMove);
+                validMove = true;
             }
+//            else {
+//              System.out.println("The move is invalid");
+//            }
         }
     }
-
-    private boolean isValidMove(int fromX, int fromY, int toX, int toY) {
-
-        return true;
-    }
-
 }
+
 
