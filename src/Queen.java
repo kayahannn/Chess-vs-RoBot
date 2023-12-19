@@ -1,21 +1,37 @@
-public class Queen extends Piece{
+public class Queen extends Piece {
 
     public Queen(Color color, int x, int y) {
         super(color, x, y);
     }
 
     @Override
-    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
-        if(super.isValid(board, fromX, fromY, toX, toY) == false)
+    public boolean isValid(int fromX, int fromY, int toX, int toY) {
+        if (super.isValid(fromX, fromY, toX, toY) == false)
             return false;
-        //diagonal
-        if(toX - fromX == toY - fromY)
-            return true;
-        if(toX == fromX)
-            return true;
-        if(toY == fromY)
-            return true;
+        for (int i = 1; i <= 7; i++) {
+            if (fromX == toX && (fromY == toY + i || fromY == toY - i)) {
+                System.out.println("X left/right");
+                return true;
+            } else if (fromY == toY && (fromX == toX + i || fromX == toX - i)) {
+                System.out.println("Y top/bottom");
+                return true;
+            } else if (fromX + i == toX && fromY + i == toY) {
+                System.out.println("top right");
+                return true;
+            } else if (fromX + i == toX && fromY - i == toY) {
+                System.out.println("top left");
+                return true;
 
+            } else if (fromX - i == toX && fromY - i == toY) {
+                System.out.println("bottom left");
+                return true;
+
+            } else if (fromX - i == toX && fromY + i == toY) {
+                System.out.println("bottom right");
+                return true;
+
+            }
+        }
         return false;
     }
 

@@ -42,7 +42,9 @@ public class HumanPlayer extends Player {
             System.out.println("You are trying to move the wrong colored piece");
         } else if (destinationSpot.getPiece() != null && pieceToMove.getColor() == destinationSpot.getPiece().getColor()) {
             System.out.println("You are trying to move onto your own piece");
-        } else {
+        } else if (!pieceToMove.isValid(fromX,fromY,toX,toY)) {
+            System.out.println("wrong move");
+        }else{
             sourceSpot.releaseSpot();
             destinationSpot.occupySpot(pieceToMove);
         }

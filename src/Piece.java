@@ -10,7 +10,7 @@ public abstract class Piece {
     }
 
 
-    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+    public boolean isValid(int fromX, int fromY, int toX, int toY) {
         if (toX == fromX && toY == fromY)
             return false;
         if (toX < 0 || toX > 7 || fromX < 0 || fromX > 7 || toY < 0 || toY > 7 || fromY < 0 || fromY > 7)

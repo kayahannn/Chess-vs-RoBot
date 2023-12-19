@@ -29,7 +29,7 @@ public class Board {
             System.out.print((i + 1) + " |");
             for (int j = 0; j < 8; j++) {
                 if (getSpot(i, j).getPiece() == null) {
-                    System.out.print(" " + "  " + " |");
+                    System.out.print(" " + "   " + " |");
                 } else {
                     if (getSpot(i, j).getPiece().getColor().equals(Color.WHITE)) {
                         System.out.print("  " + getSpot(i, j).getPiece().getSymbol() + " |");
@@ -40,7 +40,7 @@ public class Board {
                 }
             }
             System.out.print(" " + (i + 1));
-            System.out.println("\n   -----------------------------------------");
+            System.out.println("\n   ----------------------------------------------");
         }
 
         System.out.println("      a    b    c    d    e    f    g    h");
