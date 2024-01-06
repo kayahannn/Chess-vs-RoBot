@@ -10,10 +10,7 @@ public class Coordinates {
         this.rank = rank;
     }
 
-    public File getFile() {
-        return file;
-    }
-    public int  getIntFile() {
+    public int getIntFile() {
         return file.ordinal();
     }
 
@@ -36,7 +33,7 @@ public class Coordinates {
             String line = sc.nextLine();
 
             if (line.length() != 2) {
-                System.out.println("Invalid format");
+                System.out.println("Invalid format, expect 2 digits");
                 continue;
             }
 
@@ -44,19 +41,19 @@ public class Coordinates {
             char rankChar = line.charAt(1);
 
             if (!Character.isLetter(fileChar) || !Character.isDigit(rankChar)) {
-                System.out.println("Invalid format");
+                System.out.println("Invalid format, expect Flie and Number");
                 continue;
             }
 
             int rank = Character.getNumericValue(rankChar);
             if (rank < 1 || rank > 8) {
-                System.out.println("Invalid format");
+                System.out.println("Invalid format, Number value between 1 - 8");
                 continue;
             }
 
             File file = File.fromChar(fileChar);
             if (file == null) {
-                System.out.println("Invalid format");
+                System.out.println("Invalid format, File value between A - H");
                 continue;
             }
 

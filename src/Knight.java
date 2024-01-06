@@ -10,8 +10,8 @@ public class Knight extends Piece{
     }
 
     @Override
-    public boolean isValid(int fromX, int fromY, int toX, int toY) {
-        if(super.isValid(fromX, fromY, toX, toY) == false)
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if(super.isValid(board, fromX, fromY, toX, toY) == false)
             return false;
         if(Math.abs(fromX - toX) == 2 && Math.abs(fromY -toY) == 1){
             return true;

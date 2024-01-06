@@ -5,29 +5,29 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean isValid(int fromX, int fromY, int toX, int toY) {
-        if (super.isValid(fromX, fromY, toX, toY) == false)
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if (!super.isValid(board, fromX, fromY, toX, toY) || (LongRangePieceCheck.isPathOccupied(board, fromX, fromY, toX, toY)))
             return false;
         for (int i = 1; i <= 7; i++) {
             if (fromX == toX && (fromY == toY + i || fromY == toY - i)) {
-                System.out.println("X left/right");
+//                System.out.println("X left/right");
                 return true;
             } else if (fromY == toY && (fromX == toX + i || fromX == toX - i)) {
-                System.out.println("Y top/bottom");
+//                System.out.println("Y top/bottom");
                 return true;
             } else if (fromX + i == toX && fromY + i == toY) {
-                System.out.println("top right");
+//                System.out.println("top right");
                 return true;
             } else if (fromX + i == toX && fromY - i == toY) {
-                System.out.println("top left");
+//                System.out.println("top left");
                 return true;
 
             } else if (fromX - i == toX && fromY - i == toY) {
-                System.out.println("bottom left");
+//                System.out.println("bottom left");
                 return true;
 
             } else if (fromX - i == toX && fromY + i == toY) {
-                System.out.println("bottom right");
+//                System.out.println("bottom right");
                 return true;
 
             }

@@ -4,13 +4,13 @@ public  class AdvancedComputerPlayer extends ComputerPlayer{
 
 
     public AdvancedComputerPlayer() {
-        this.name = "Bard";
+        this.setName("Bard");
 
     }
 
     @Override
-    public void makeMove() {
-        System.out.println(this.name + " is making a move...");
+    public void makeMove(Board board) {
+        System.out.println(this.getName() + " is making a move...");
 
         makeRandomMove();
     }

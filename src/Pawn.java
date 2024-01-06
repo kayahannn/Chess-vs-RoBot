@@ -13,10 +13,10 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean isValid(int fromX, int fromY, int toX, int toY) {
-        if(!super.isValid(fromX, fromY, toX, toY))
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if(!super.isValid(board, fromX, fromY, toX, toY))
             return false;
-        if(Math.abs(fromY - toY) != 0){
+        if(Math.abs(fromY - toY) != 0){ // check if in diagonal there is opponent piece to be attacked
             return false;
         }
         if (Math.abs(fromX - toX) != 1)

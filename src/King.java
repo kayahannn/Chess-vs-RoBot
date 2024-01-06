@@ -1,4 +1,4 @@
-public class King extends Piece{
+public class King extends Piece {
 
 
     public King(Color color, int x, int y) {
@@ -7,11 +7,32 @@ public class King extends Piece{
     }
 
     @Override
-    public boolean isValid(int fromX, int fromY, int toX, int toY) {
-        if(super.isValid(fromX, fromY, toX, toY) == false)
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if (super.isValid(board, fromX, fromY, toX, toY) == false)
             return false;
-        if(Math.sqrt(Math.pow(Math.abs((toX - fromX)),2)) + Math.pow(Math.abs((toY - fromY)), 2) != Math.sqrt(2)){
-            return false;
+
+        for (int i = 1; i <= 1; i++) {
+            if (fromX == toX && (fromY == toY + i || fromY == toY - i)) {
+//                System.out.println("X left/right");
+                return true;
+            } else if (fromY == toY && (fromX == toX + i || fromX == toX - i)) {
+//                System.out.println("Y top/bottom");
+                return true;
+            } else if (fromX + i == toX && fromY + i == toY) {
+//                System.out.println("top right");
+                return true;
+            } else if (fromX + i == toX && fromY - i == toY) {
+//                System.out.println("top left");
+                return true;
+
+            } else if (fromX - i == toX && fromY - i == toY) {
+//                System.out.println("bottom left");
+                return true;
+
+            } else if (fromX - i == toX && fromY + i == toY) {
+//                System.out.println("bottom right");
+                return true;
+            }
         }
         return false;
     }
