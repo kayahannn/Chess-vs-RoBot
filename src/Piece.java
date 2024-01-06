@@ -13,7 +13,6 @@ public abstract class Piece implements IPieceValidation {
         if (toX == fromX && toY == fromY)
             return false;
         return (toX >= 0 && toX <= 7 && fromX >= 0 && fromX <= 7 && toY >= 0 && toY <= 7 && fromY >= 0 && fromY <= 7);
-
 //              &&  (!isPathOccupied(board, fromX, fromY, toX, toY)));
     }
 
