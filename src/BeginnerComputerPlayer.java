@@ -3,30 +3,32 @@ import java.util.Random;
 //Evaluating game by Material, taken pieces
 public class BeginnerComputerPlayer extends ComputerPlayer {
 
+    private final Random random = new Random();
 
     public BeginnerComputerPlayer() {
-        this.name = "Chat GPT";
+        this.setName("Chat GPT");
     }
 
     @Override
-    public void makeMove() {
-        System.out.println(this.name + " is making a move...");
+    public void makeMove(Board board) {
+        System.out.println(this.getName() + " is making a move...");
         boolean validMove = false;
 
         while (!validMove) {
 
-            Random random = new Random();
-            int fromX = random.nextInt(8);
-            int fromY = random.nextInt(8);
-            int toX = random.nextInt(8);
-            int toY = random.nextInt(8);
+            int fromX = random.nextInt(7);
+            int fromY = random.nextInt(7);
+            int toX = random.nextInt(7);
+            int toY = random.nextInt(7);
 
             Spot sourceSpot = Board.getSpot(fromX, fromY);
             Spot destinationSpot = Board.getSpot(toX, toY);
 
             Piece pieceToMove = sourceSpot.getPiece();
 
-            if (pieceToMove != null && pieceToMove.getColor().equals(this.color) && pieceToMove.isValid(fromX, fromY, toX, toY)) {
+            if ((pieceToMove != null &&
+                    pieceToMove.getColor().equals(this.getColor()) &&
+                    pieceToMove.isValid(board, fromX, fromY, toX, toY))) {
                 sourceSpot.releaseSpot();
                 destinationSpot.occupySpot(pieceToMove);
                 validMove = true;

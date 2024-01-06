@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Board {
     private static final Spot[][] spots = new Spot[8][8];
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_BLACK = "\u001B[30m";
 
 
     public Board() {

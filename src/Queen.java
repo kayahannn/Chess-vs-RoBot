@@ -5,8 +5,8 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean isValid(int fromX, int fromY, int toX, int toY) {
-        if (super.isValid(fromX, fromY, toX, toY) == false)
+    public boolean isValid(Board board, int fromX, int fromY, int toX, int toY) {
+        if (super.isValid(board, fromX, fromY, toX, toY) == false)
             return false;
         for (int i = 1; i <= 7; i++) {
             if (fromX == toX && (fromY == toY + i || fromY == toY - i)) {

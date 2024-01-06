@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class IPlayerMakeMove {
+public interface     IPlayerMakeMove {
+    void makeMove(Board board);
 }

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
 
         HumanPlayer humanPlayer = new HumanPlayer();
         humanPlayer.selectColor();
@@ -27,6 +27,7 @@ public class Main {
 
                 players = new Player[]{humanPlayer, computer2};
             } else {
+                scanner.close();
                 throw new Exception("Invalid difficulty Level!");
             }
 
@@ -37,9 +38,9 @@ public class Main {
 
             while (true) {
                 for (Player player : players) {
-                    playTurn(player);
+                    player.playTurn(chessBoard);
                     if (isCheckmateOrStalemate(player, chessBoard)) {
-                        System.out.println("Game over. " + player.name + " wins!");
+                        System.out.println("Game over. " + player.getName() + " wins!");
                         scanner.close();
                         return;
                     }
@@ -47,35 +48,16 @@ public class Main {
                 chessBoard.displayBoard();
             }
         } catch (Exception e) {
-            System.out.println("Invalid difficulty Level!");
+            e.printStackTrace();
         }
     }
 
 
 
-    public static void playTurn(Player player) {
-        System.out.println(player.getName() + "'s turn" + " playing with " + player.getColor());
-
-        if (player instanceof ComputerPlayer) {
-            player.makeMove();
-
-        } else {
-            System.out.println("Move from Spot: ");
-            Coordinates moveFromSpot = Coordinates.humanPlayerEnterCoordinates();
-            System.out.println(moveFromSpot.toString());
-
-            System.out.println("Move to Spot: ");
-            Coordinates moveToSpot = Coordinates.humanPlayerEnterCoordinates();
-            System.out.println(moveToSpot);
-
-            ((HumanPlayer)player).makeMove(moveFromSpot.getRank() - 1, moveFromSpot.getIntFile(), moveToSpot.getRank() - 1, moveToSpot.getIntFile());
-
-        }
-    }
 
 
     private static boolean isCheckmateOrStalemate(Player player, Board board) {
-
+        //TODO implement method
         return false;
     }
 

@@ -1,7 +1,7 @@
 public class Spot {
     protected int x;
     protected int y;
-    protected Piece piece;
+    private Piece piece;
 
     public Spot(int x, int y, Piece piece) {
         this.x = x;
